@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -14,7 +13,7 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 // import './header.styles.scss';
 import {
     HeaderContainer, LogoContainer,
-    OptionsContainer, OptionLink, OptionDiv,
+    OptionsContainer, OptionLink,
 } from './header.styles';
 
 const Header = ({ currentUser, hidden }) => (
@@ -31,11 +30,12 @@ const Header = ({ currentUser, hidden }) => (
             </OptionLink>
             {
                 currentUser ?
-                <OptionDiv
+                <OptionLink
+                    as="div"
                     onClick={() => auth.signOut()}
                 >
                     SIGN OUT
-                </OptionDiv>
+                </OptionLink>
                 :
                 <OptionLink to='signin'>
                     SIGN IN
